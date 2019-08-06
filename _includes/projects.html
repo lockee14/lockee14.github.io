@@ -2,28 +2,48 @@
   <h1> Featured Projects </h1>
 </div>
 <div class="user-projects">
+  <div class="images-left">
+    {% assign img_array = "mail_viewer, mail_select_date, mail_hover, mail_inspect" | split: ", " %}
+    {% include carousel.html content = img_array num = 3 name = "mail_viewer" %}
+  </div>
+  <div class="contents-right">
+    <h3> Mail Viewer </h3>
+    <ul>
+      <li> Mail viewer tool made with react, it use airbnb reat date-picker and react material-ui </li>
+    </ul>
+    <a class="project-link" href="https://github.com/lockee14/reactMailViewer">Check it out</a>
+  </div>
+</div>
+<div class="user-projects">
   <div class="images-right">
-    <img alt="mountains" src="{{ "/assets/img/mountains.jpg" | prepend: site.baseurl }}" />
+    {% assign img_array = "eve-hub_home, eve-hub_chart, eve-hub_buy, eve-hub_info, eve-hub_appraisal, eve-hub_mail, eve-hub_newmail" | split: ", " %}
+    {% include carousel.html content = img_array num = 6 name = "eve-hub" %}
   </div>
   <div class="contents">
-    <h3> Project Title </h3>
+    <h3> EVE-HUB </h3>
     <ul>
-      <li> Featured Skills</li>
+      <li>Front-End made with Angular 7, multi-lingual for all of the eve online supported language, error handling with a friendly message</li>
+      <li>Back-End made with Node.js and Express behind a NGINX server on a Debian machine hosted on a google compute engine</li>
+      <li>Database using MongoDB for storing assets related data and redis for the temporary user-related data</li>
     </ul>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <a class="project-link" href="#">Check it out</a>
+    <p>
+      This website is intended for eve online player, using the official eve online API it provides multiple tools such as market data, appraisal, in-game mail management.
+      <br>you can see the front-end code here: <a href="https://github.com/lockee14/eve-hub">https://github.com/lockee14/eve-hub</a>
+    </p>
+    <a class="project-link" href="https://eve-hub.com/">Check it out</a>
   </div>
 </div>
 <div class="user-projects">
   <div class="images-left">
-    <img alt="mountains" src="{{ "/assets/img/skate.jpg" | prepend: site.baseurl }}" />
+    {% assign img_array = "chart_tool, chart_zoom, chart_option, chart_changed" | split: ", " %}
+    {% include carousel.html content = img_array num = 3 name = "chartlib" %}
   </div>
   <div class="contents-right">
-    <h3> Project Title </h3>
+    <h3> Chart Data visualisation tool </h3>
     <ul>
-      <li> Featured Skills</li>
+      <li> Made with canvas and typescript in a webpack development environment </li>
     </ul>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <a class="project-link" href="#">Check it out</a>
+    <p>I made this tool for visualizing market data on my website, different types of charts and indicators are available and it is customizable from colors to the types of charts and indicators displayed</p>
+    <a class="project-link" href="https://github.com/lockee14/chartlib">Check it out</a>
   </div>
 </div>

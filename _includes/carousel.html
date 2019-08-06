@@ -1,0 +1,35 @@
+<div class="CarouselContainer">
+    <div id="{{include.name}}" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+        <ol class="carousel-indicators" style="z-index:1;">
+        {% for i in (0..include.num) %}
+            {% if i == 0 %}
+                <li data-target="#{{include.name}}" data-slide-to={{i}} class="active"></li>
+            {% else %}
+                <li data-target="#{{include.name}}" data-slide-to={{i}}></li>
+            {% endif %}
+        {% endfor %}
+        </ol>
+        <div class="carousel-inner">
+            {% for i in (0..include.num) %}
+                {% if i == 0 %}
+                    <div class="item active">
+                        <img alt={{include.content[i]}} src={{ "/assets/img/" | append: include.content[i] | append: ".png" | prepend: site.baseurl }} style="width:100%;">
+                    </div>          
+                {% else %}
+                    <div class="item">
+                        <img alt={{include.content[i]}} src={{ "/assets/img/" | append: include.content[i] | append: ".png" | prepend: site.baseurl }} style="width:100%;">
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <a class="left carousel-control" href="#{{include.name}}" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#{{include.name}}" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>

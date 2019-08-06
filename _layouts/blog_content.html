@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="{{ "/src/css/blog_content.css" | prepend: site.baseurl }}">
+  </head>
+  <body>
+      <header>
+        Mehdi Luthon's blog <a href="{{ "/" | prepend: site.baseurl}}">back to main page</a>
+      </header>
+      <section id="content">
+        <div id="post">
+            <!-- post content -->
+            {{ content }} 
+        </div>
+        {% include archive.html %}
+      </section>
+      {% include footer.html %}
+  </body>

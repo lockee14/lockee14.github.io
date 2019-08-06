@@ -1,0 +1,33 @@
+---
+---
+
+@import 'lib/normalize';
+@import 'lib/fontawesome';
+@import 'lib/devicon';
+@import 'base';
+@import 'vars';
+@import 'archive';
+@import 'footer';
+
+header {
+    text-align: center;
+    margin-top: 1%;
+}
+
+#content {
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+#post {
+    margin: 0% 10% auto;
+}
+
+.footnote {
+    padding: 0% 5%;
+}
+
+.note {
+    list-style-type: decimal;
+}
+

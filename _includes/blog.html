@@ -1,0 +1,15 @@
+<div class="user-details">
+    <h1> Last Blog Posts </h1>
+</div>
+<div id="blog_container">
+    <div id="last_posts">
+        <ul>
+            {% for post in site.posts limit:5 %}
+                <div>
+                    <a href="{{ post.url }}">{{ post.excerpt }}</a>
+                </div>
+            {% endfor %}
+        </ul>
+    </div>
+    {% include archive.html %}
+</div>
