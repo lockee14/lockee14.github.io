@@ -89,10 +89,18 @@ img {vertical-align: middle;}
 
 /*:hover only for desktop, disable it for small devices*/
 .CarouselContainer:hover {
+  @media only screen and (min-width: $cut) {
     position: fixed;
     width: 75%;
     left: 25%;
     top: 50%;
     z-index: 10;
     transform: translate(-15%, -50%);
+  }
+    // position: fixed;
+    // width: 75%;
+    // left: 25%;
+    // top: 50%;
+    // z-index: 10;
+    // transform: translate(-15%, -50%);
 }

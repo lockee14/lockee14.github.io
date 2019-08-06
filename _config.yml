@@ -15,7 +15,7 @@ linkedin: https://www.linkedin.com/in/mehdi-luthon/
 excerpt_separator: <!--more-->
 # Google-analytics
 google-analytics:
-  id: ""
+  id: "UA-145148279-1"
 
 exclude: ['package.json', 'node_modules']
 sass:

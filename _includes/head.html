@@ -6,7 +6,8 @@
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
-  <link rel="stylesheet" href="{{ "/src/css/main.css" | prepend: site.baseurl }}">
+  <!-- <link rel="stylesheet" href="{{ "/src/css/main.css" | prepend: site.baseurl }}"> -->
+  <link rel="stylesheet" href="{{ include.stylesheet | prepend: site.baseurl }}">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <!-- for carousel -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
