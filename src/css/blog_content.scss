@@ -15,11 +15,11 @@ header {
     margin-top: 1%;
 }
 
-#content {
+#blog_content {
     display: grid;
     grid-template-columns: 80% 20%;
     margin: 0% 5% auto;
-    @media only screen and (max-width: $cut) {
+    @media only screen and (min-width: 550px) {
         display: inherit;
     }
 }

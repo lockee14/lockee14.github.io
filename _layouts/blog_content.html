@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- <head>
+  <head>
     <link rel="stylesheet" href="{{ "/src/css/blog_content.css" | prepend: site.baseurl }}">
-  </head> -->
-  {% include head.html stylesheet = "/src/css/blog_content.css" %}
+  </head>
   <body>
       <header>
         Mehdi Luthon's blog <a href="{{ "/" | prepend: site.baseurl}}">back to main page</a>
       </header>
-      <section id="content">
+      <section id="blog_content">
         <div id="post">
             <!-- post content -->
             {{ content }} 
@@ -17,7 +16,11 @@
       </section>
       <section id="comment_section">
         <div id="commento"></div>
-        <script src="https://cdn.commento.io/js/commento.js"></script>
+        <script defer src="https://cdn.commento.io/js/commento.js"></script>
       </section>
-      {% include footer.html %}
+      <footer class="footer">
+        <p>&copy; {{site.username}}</p>
+        <p>Build with Jekyll and <span class="love">❤</span></p>
+      </footer>
+      <script defer src="{{ "/assets/js/sweet-scroll.min.js" | prepend: site.baseurl }}"></script>
   </body>

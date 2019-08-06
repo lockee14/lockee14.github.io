@@ -5,13 +5,13 @@
             {% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'"  %}
             {% for year in postsByYear %}
             <li>
-              <input type="checkbox" id="{{ year.name }}">
+              <input type="checkbox" id="{{ year.name }}" class="fake_input">
               <label class="tab-label" for="{{ year.name }}">{{ year.name }}</label>
               <ul class="tab tab-content">
                 {% assign postsByMonth = year.items | group_by_exp:"post", "post.date | date: '%b'"  %}
                 {% for month in postsByMonth %}
                 <li>
-                  <input type="checkbox" id="{{year.name | append: month.name}}">
+                  <input type="checkbox" id="{{year.name | append: month.name}}" class="fake_input">
                   <label class="tab-label" for="{{year.name | append: month.name}}">{{ month.name }}</label>
                   <ul class="tab tab-content">
                     {% for post in month.items %}

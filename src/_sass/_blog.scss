@@ -13,3 +13,9 @@
         padding: 5%;
       }
 }
+
+#archive{
+  @media only screen and (max-width: $cut) {
+    padding: 5%;
+  }
+}
