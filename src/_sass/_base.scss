@@ -41,6 +41,11 @@ p, figure {
 a img {
     border: none;
 }
+
+img { /*image fit to screen*/
+    width: 100%
+}
+
 sup, sub {
     line-height: 0;
 }

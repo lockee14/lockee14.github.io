@@ -1,3 +1,3 @@
 My personal GitHub page.
 
-http://lockee14.github.io
+https://lockee14.github.io
