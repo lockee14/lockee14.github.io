@@ -1,7 +1,7 @@
 ---
 layout: blog_content
 title: "Number in javascript"
-folder: 2019-08-03-number-in-javascript
+folder: "Number_in_javascript"
 ---
 <div>
     <h1>Number in javascript.</h1>
@@ -10,15 +10,38 @@ folder: 2019-08-03-number-in-javascript
         Hi, today let's dive into how number work in javascript.
     </h3>
 
-    <p>In javascript every number are float64 following the  IEEE 754-2008 format, in this post we will see how IEEE 754 work.</p>
+    <img alt="Number in javascript" src="{{ "/assets/img/" | append: page.folder | append: "/number_type.png" | prepend: site.baseurl }}" />
+
+    <p>As we can see In javascript every number are float64 following the IEEE 754-2008 format, in this post we will see how IEEE 754-2008 work.</p>
 
     <!--more-->
+    <p>
+        The designer of the IEEE-754 format choose to represent number in a scientifique notation,
+        So 324.569 become 3.24569 * 10^3,
+        since we are on a computer we must deal with binary thus this number must be represented in base 2
+    </p>
 
-    <div>
+    <p>Number are represented in binary as such:</p>
+
+    <img alt="Number in javascript" src="{{ "/assets/img/" | append: page.folder | append: "/IEEE_754_Double_Floating_Point_Format.png" | prepend: site.baseurl }}" />
+
+    <p>they are composed of 3 part:</p>
+
+    <p>1 bit for the sign wich give the sign of the number, 0 for positive, 1 for negative</p>
+    
+    <p>11 bit for the exponent<sup><a href="#1">[1]</a></sup></p>
+
+    <p>52 bit for the mantissa<sup><a href="#2">[2]</a></sup></p>
+    
+    <p>So how our number 324.569 fit in those bit?</p>
+    <div id="note">
         <p>Notes:</p>
         <ul class="note footnote">
             <li id="1">
-                some note
+                the exponent is: blabla
+            </li>
+            <li id="2">
+
             </li>
         </ul>
 
@@ -26,8 +49,15 @@ folder: 2019-08-03-number-in-javascript
         <ul class="footnote">
             <li>
                 <a href="https://www.ecma-international.org/ecma-262/10.0/index.html">https://www.ecma-international.org/ecma-262/10.0/index.html</a>
+            </li>
+            <li>
+                <a href="http://www.dsc.ufcg.edu.br/~cnum/modulos/Modulo2/IEEE754_2008.pdf">http://www.dsc.ufcg.edu.br/~cnum/modulos/Modulo2/IEEE754_2008.pdf</a>
+            </li>
+            <li>
                 <a href="https://en.wikipedia.org/wiki/IEEE_754">https://en.wikipedia.org/wiki/IEEE_754</a>
-                <a href="https://www.h-schmidt.net/FloatConverter/IEEE754.html">https://www.h-schmidt.net/FloatConverter/IEEE754.html</a>
+            </li>
+            <li>
+                <a href="https://www.h-schmidt.net/FloatConverter/IEEE754.html">https://www.h-schmidt.net/FloatConverter/IEEE754.html</a>    
             </li>
         </ul>
     </div>
