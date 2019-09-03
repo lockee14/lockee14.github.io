@@ -6,12 +6,12 @@
     {% assign img_array = "mail_viewer, mail_select_date, mail_hover, mail_inspect, mail_viewer_mobile, mail_viewer_inspect_mobile" | split: ", " %}
     {% include carousel.html content = img_array num = 5 name = "mail_viewer" %}
   </div>
-  <div class="contents-right">
+  <div class="contents-left">
     <h3> Mail Viewer </h3>
     <ul>
       <li> Mail viewer tool made with react, it use airbnb react date-picker and react material-ui </li>
     </ul>
-    <p>you can see the front-end code here: <a href="https://github.com/lockee14/reactMailViewer">https://github.com/lockee14/reactMailViewer</a></p>
+    <p>you can see the code here: <a href="https://github.com/lockee14/reactMailViewer">https://github.com/lockee14/reactMailViewer</a></p>
     <a class="project-link" href="https://lockee14-reactmailviewer.glitch.me">Check it out</a>
   </div>
 </div>
@@ -39,12 +39,28 @@
     {% assign img_array = "chart_tool, chart_zoom, chart_option, chart_changed" | split: ", " %}
     {% include carousel.html content = img_array num = 3 name = "chartlib" %}
   </div>
-  <div class="contents-right">
+  <div class="contents-left">
     <h3> Chart Data visualisation tool </h3>
     <ul>
       <li> Made with canvas and typescript in a webpack development environment </li>
     </ul>
     <p>I made this tool for visualizing market data on my website, different types of charts and indicators are available and it is customizable from colors to the types of charts and indicators displayed</p>
     <a class="project-link" href="https://github.com/lockee14/chartlib">Check it out</a>
+  </div>
+</div>
+<div class="user-projects">
+  <div class="images-right">
+    {% assign img_array = "trello_login, trello_boards, trello_boards_order, trello_board, trello_board_order" | split: ", " %}
+    {% include carousel.html content = img_array num = 4 name = "eve-hub" %}
+  </div>
+  <div class="contents">
+    <h3> Trello clone </h3>
+    <ul>
+      <li>Simple trello clone made with Angular 8, it use angular material for the drag & drop feature and general styling</li>
+    </ul>
+    <p>
+      you can see the code here: <a href="https://github.com/lockee14/trello-clone">https://github.com/lockee14/trello-clone</a>
+    </p>
+    <a class="project-link" href="https://simple-trello-clone.stackblitz.io/boards">Check it out</a>
   </div>
 </div>
