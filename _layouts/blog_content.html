@@ -21,9 +21,6 @@
         <div id="commento"></div>
         <script defer src="https://cdn.commento.io/js/commento.js"></script>
       </section>
-      <footer class="footer">
-        <p>&copy; {{site.username}}</p>
-        <p>Build with Jekyll and <span class="love">❤</span></p>
-      </footer>
+      {% include footer.html %}
       <script defer src="{{ "/assets/js/sweet-scroll.min.js" | prepend: site.baseurl }}"></script>
   </body>

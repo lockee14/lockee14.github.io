@@ -1,0 +1,238 @@
+---
+layout: blog_content
+title: "Number in javascript"
+folder: "Number_in_javascript"
+---
+<style>
+    #divideBox {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+
+    #divideBox > div {
+        display: grid;
+        grid-template-rows: 15% 75% 10%;
+    }
+
+    #divideBox p {
+        margin: 0px
+    }
+
+    #integer {
+        position: relative;
+    }
+
+    #decimal {
+        position: relative;
+    }
+
+    .computeBox {
+        display: flex;
+        text-align: end;
+    }
+
+    .computeBox > p {
+        background-color: chartreuse;
+    }
+
+    .dot {
+        margin-right: 17px !important;
+    }
+
+    .sign {
+      color: #0b92a0;
+    }
+
+    .exponent {
+      color: #008204;
+    }
+
+    .mantissa {
+      color: #ff002f;
+    }
+
+    .displayBin {
+        letter-spacing: 1px;
+    }
+
+    .arrow {
+        margin-left: 5px;
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+    }
+
+    .arrowUp {
+        border-width: 0 6.5px 15px 6.5px;
+        border-color: transparent transparent red transparent;
+    }
+
+    .arrowDown {
+        border-width: 15px 6.5px 0px 6.5px;
+        border-color: red transparent transparent transparent;
+    }
+
+    .line {
+        display: block;
+        width: 2.5px;
+        margin-left: 10px;
+        background: red;
+        height: 80%;
+    }
+
+</style>
+<div>
+    <h1>Numbers in javascript.</h1>
+
+    <h3>
+        Hi, today let's dive into how numbers works in javascript.
+    </h3>
+
+    <img alt="Number in javascript" src="{{ "/assets/img/" | append: page.folder | append: "/number_type.png" | prepend: site.baseurl }}" />
+
+    <p>As we can see In javascript every numbers are 64-bit float following the IEEE 754-2008 format, in this post we will see how IEEE 754-2008 format work.</p>
+
+    <!--more-->
+    <p>
+        The designer of the IEEE-754 format choose to represent numbers in a scientifique notation,
+        so a number like 340.15 become 3.4015 * 10^2.
+        Since we are on a computer we must deal with binary thus this number must be represented in base 2.
+    </p>
+
+    <p>64-bit float are represented in binary as such:</p>
+
+    <img alt="Number in javascript" src="{{ "/assets/img/" | append: page.folder | append: "/IEEE_754_Double_Floating_Point_Format.png" | prepend: site.baseurl }}" />
+
+    <p>they are composed of 3 part:</p>
+
+    <p>1 bit for the sign wich give the <span class="sign">sign</span> of the number, 0 for positive, 1 for negative.</p>
+    
+    <p>11 bit for the biased <span class="exponent">exponent.</span> (the bias for 64 float is 1023)<sup><a href="#1">[1]</a></sup></p>
+
+    <p>52 bit for the <span class="mantissa">mantissa.</span><sup><a href="#2">[2]</a></sup></p>
+    
+    <p>So how our number 340.15 fit in those bit?</p>
+    
+    <h3>From number to binary:</h3>
+
+    <p>
+        First let's convert 340.15 to a base 2 format.
+    </p>
+    <div id="divideBox">
+        <div id="integer">
+            <h4>integer: 340</h4>
+            <div class="computeBox">
+                <div>
+                    <p>340 = 170 * 2 + <span class="mantissa">0</span></p>
+                    <p>170 = 85 * 2 + <span class="mantissa">0</span></p>
+                    <p>85 = 42 * 2 + <span class="mantissa">1</span></p>
+                    <p>42 = 21 * 2 + <span class="mantissa">0</span></p>
+                    <p>21 = 10 * 2 + <span class="mantissa">1</span></p>
+                    <p>10 = 5 * 2 + <span class="mantissa">0</span></p>
+                    <p>5 = 2 * 2 + <span class="mantissa">1</span></p>
+                    <p>2 = 1 * 2 + <span class="mantissa">0</span></p>
+                    <p>1 = 0 * 2 + <span class="mantissa">1</span></p>
+                </div>
+                <span>
+                    <span class="arrow arrowUp"></span>
+                    <span class="line"></span>
+                </span>    
+            </div>
+            <p>340 in binary => <span class="mantissa displayBin">001010101</span></p>
+        </div>
+        <div id="decimal">
+            <h4>decimal: 0.15</h4>
+            <div class="computeBox">
+                <div>
+                    <p>0.15 * 2 = <span class="mantissa">0</span>.3</p>
+                    <p>0.3 * 2 = <span class="mantissa">0</span>.6</p>
+                    <p>0.6 * 2 = <span class="mantissa">1</span>.2</p>
+                    <p>0.2 * 2 = <span class="mantissa">0</span>.4</p>
+                    <p>0.4 * 2 = <span class="mantissa">0</span>.8</p>
+                    <p>0.8 * 2 = <span class="mantissa">1</span>.6</p>
+                    <p>0.6 * 2 = <span class="mantissa">1</span>.2</p>
+                    <p>0.2 * 2 = <span class="mantissa">0</span>.4</p>
+                    <p>0.4 * 2 = <span class="mantissa">0</span>.8</p>
+                    <p class="mantissa dot">.</p>
+                    <p class="mantissa dot">.</p>
+                    <p class="mantissa dot">.</p>
+                </div>
+                <span>
+                    <span class="line"></span>
+                    <span class="arrow arrowDown"></span>
+                </span>
+            </div>
+            <p>0.15 in binary => <span class="mantissa displayBin">00100110011001100110011001100....</span></p>
+        </div>
+    </div>
+    <p>
+        Thus in binary 340.15 is <span class="mantissa displayBin">001010101.0010011001100110011001100.....</span> since it need be write with a scientifique notation we have
+        <span class="mantissa displayBin">1.0101010010011001100110011001100.....</span> * 10<sup class="exponent">8</sup>
+        So the exponent is <span class="exponent">8</span> + bias (1023)  = <span class="exponent">1031</span> in binary it is: <span class="exponent displayBin">10000000111</span>
+    </p>
+    <p>We have: </p>
+    <p>Sign: <span class="sign">0</span></p>
+    <p>Exponent: <span class="exponent displayBin">10000000111</span></p>
+    <p>Mantissa: <span class="mantissa displayBin">0101010000100110011001100110011001100110011001100110</span> (note that the leading 1 is implicite, except for denormal number explaination for denormal notation is further down this article)</p>
+    <p>Full binary notation: <span class="displayBin"><span class="sign">0</span><span class="exponent">10000000111</span><span class="mantissa">0101010000100110011001100110011001100110011001100110</span></span></p>
+    
+    <h3>From binary to number:</h3>
+    <p>To convert it back to our number it's simple just apply this formula: -1<sup class="sign">sign</sup> * 2<sup><span class="exponent">exp</span> - biais</sup> * <span class="mantissa">mantissa</span>.</p>
+    <p>Sign: <span class="sign">0</span></p>
+    <p>Exponent: <span class="exponent displayBin">10000000111</span> = 1 * 2<sup class="exponent">0</sup> + 1 *2<sup class="exponent">1</sup> + 1 * 2<sup class="exponent">2</sup> + ..... + 0 * 2<sup class="exponent">9</sup> + 1 * 2<sup class="exponent">10</sup> - 1023 = <span class="exponent">8</span></p>
+    <p>Mantissa: <span class="mantissa displayBin">0101010000100110011001100110011001100110011001100110</span> = 1 + 0*2<sup class="mantissa">-1</sup> + 1 * 2<sup class="mantissa">-2</sup> + 0 * 2<sup class="mantissa">-3</sup> + .... + 0 * 2<sup class="mantissa">-52</sup> = <span class="mantissa">1.3287109375</span></p>
+    <p>Number: -1<sup class="sign">0</sup> * 2<sup class="exponent">8</sup> * <span class="mantissa">1.3287109375</span> = 340.15</p>
+    
+    <h3>Zero and denormal numbers:</h3>
+    
+    <h4>Zero is represented specially:</h4>
+    <p>sign = <span class="sign">0</span> for positive zero, <span class="sign">1</span> for negative zero</p>
+    <p>biased exponent = <span class="exponent">0</span></p>
+    <p>mantissa = <span class="mantissa">0</span></p>
+    
+    <h4>Denormalized numbers:</h4>
+    <p>
+        The number representations described above are called normalized, meaning that the implicit leading binary digit is a 1. 
+        To reduce the loss of precision when an underflow occurs, IEEE 754 includes the ability to represent fractions smaller 
+        than are possible in the normalized representation, by making the implicit leading digit a 0. 
+        Such numbers are called denormal. They don't include as many significant digits as a normalized number, 
+        but they enable a gradual loss of precision when the result of an arithmetic operation is not exactly zero but is 
+        too close to zero to be represented by a normalized number.
+    </p>
+    
+    <h3>Visual representation:</h3>
+    <p>Along with this article, I made a visual representation of the IEEE-754 64-bit floating point format, you can find it here: <a href="https://lockee14.github.io/64_bit_IEEE-754_convertor/">https://lockee14.github.io/64_bit_IEEE-754_convertor/</a></p>
+
+    <p>The Github repo for this project is here: <a href="https://github.com/lockee14/64_bit_IEEE-754_convertor">https://github.com/lockee14/64_bit_IEEE-754_convertor</a></p>
+    
+    <div id="note">
+        <p>Notes:</p>
+        <ul class="note footnote">
+            <li id="1">
+                see: <a href="https://en.wikipedia.org/wiki/Exponent_bias">https://en.wikipedia.org/wiki/Exponent_bias</a>
+            </li>
+            <li id="2">
+                see: <a href="https://en.wikipedia.org/wiki/Significand">https://en.wikipedia.org/wiki/Significand</a>
+            </li>
+        </ul>
+        <p>Resources:</p>
+        <ul class="footnote">
+            <li>
+                <a href="https://www.amazon.com/Write-Great-Code-Understanding-Machine/dp/1593270038">Write Great Code: Volume 1: Understanding the Machine chapter 4 Floating-Point Representation</a>
+            </li>
+            <li>
+                <a href="https://www.ecma-international.org/ecma-262/10.0/index.html">https://www.ecma-international.org/ecma-262/10.0/index.html</a>
+            </li>
+            <li>
+                <a href="http://www.dsc.ufcg.edu.br/~cnum/modulos/Modulo2/IEEE754_2008.pdf">http://www.dsc.ufcg.edu.br/~cnum/modulos/Modulo2/IEEE754_2008.pdf</a>
+            </li>
+            <li>
+                <a href="https://en.wikipedia.org/wiki/IEEE_754">https://en.wikipedia.org/wiki/IEEE_754</a>
+            </li>
+            <li>
+                <a href="https://www.h-schmidt.net/FloatConverter/IEEE754.html">https://www.h-schmidt.net/FloatConverter/IEEE754.html</a>    
+            </li>
+        </ul>
+    </div>
+</div>
