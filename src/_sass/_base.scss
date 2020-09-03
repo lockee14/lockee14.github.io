@@ -43,7 +43,10 @@ a img {
 }
 
 img { /*image fit to screen*/
-    width: 100%
+    // width: 100%;
+    /*image fit to screen and responsive*/
+    max-width: 100%;
+    height: auto;
 }
 
 sup, sub {
