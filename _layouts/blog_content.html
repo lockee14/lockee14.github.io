@@ -18,9 +18,13 @@
         {% include archive.html %}
       </section>
       <section id="comment_section">
-        <div id="commento"></div>
-        <script defer src="https://cdn.commento.io/js/commento.js"></script>
+        <script src="https://utteranc.es/client.js"
+            repo="lockee14/lockee14.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+        </script>
       </section>
-      {% include footer.html %}
-      <script defer src="{{ "/assets/js/sweet-scroll.min.js" | prepend: site.baseurl }}"></script>
+      {% include blog_footer.html %}
   </body>
